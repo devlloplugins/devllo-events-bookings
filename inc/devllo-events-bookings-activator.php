@@ -18,6 +18,7 @@ class Devllo_Events_Bookings_Activator {
     }
 
     function load_bookings_plugin(){
+		global $wpdb;
         if ( is_admin() && get_option( 'Activated_Plugin' ) == 'devllo-event-bookings' ) {
             delete_option( 'Activated_Plugin' );
 
