@@ -3,8 +3,6 @@
 class Devllo_Events_Bookings_Form {
 
         public function __construct(){
-       //       add_shortcode( 'devllo_custom_bookings', array($this, 'devllo_events_bookings_shortcode'));
-       //       add_action( 'wp_enqueue_scripts', array( $this, 'devllo_events_reg_frontend' ) );
             add_shortcode( 'devllo_register', array($this, 'devllo_events_bookings_form'));
             add_action( 'init', array( $this, 'devllo_events_add_new_user' ) );
         }
@@ -18,15 +16,12 @@ class Devllo_Events_Bookings_Form {
             // check if bookings is enabled
            // $bookings_enabled = get_option('users_can_register');
 
-           update_option('users_can_register',1);
+            if ( ! get_option( 'users_can_register' ) ) { 
+            update_option( 'users_can_register', true ); 
+            }
 
-    
-            // if enabled
-        //    if($bookings_enabled) {
                 $output = $this->devllo_events_bookings_fields();
-         //   } else {
-          //      $output = __('User bookings is not enabled');
-         //   }
+   
             return $output;
         }
     }
@@ -68,7 +63,7 @@ class Devllo_Events_Bookings_Form {
                             <input name="devllo_events_bookings_user_pass_confirm" id="password_again" class="password_again" type="password"/>
                         </p>
                         <p>
-                            <input type="hidden" name="devllo_events_csrf" value="<?php echo wp_create_nonce('vicode-csrf'); ?>"/>
+                            <input type="hidden" name="devllo_events_csrf" value="<?php echo wp_create_nonce('devllo-eb-csrf'); ?>"/>
                             <input type="submit" value="<?php _e('Register Your Account'); ?>"/>
                         </p>
                     </fieldset>
@@ -79,10 +74,10 @@ class Devllo_Events_Bookings_Form {
 
         // Register a new user
         function devllo_events_add_new_user() {
-            if (isset( $_POST["devllo_events_bookings_user_login"] ) && wp_verify_nonce($_POST['devllo_events_csrf'], 'vicode-csrf')) {
+            if (isset( $_POST["devllo_events_bookings_user_login"] ) && wp_verify_nonce($_POST['devllo_events_csrf'], 'devllo-eb-csrf')) {
             $user_login		= $_POST["devllo_events_bookings_user_login"];	
             $user_email		= $_POST["devllo_events_bookings_user_email"];
-            $user_first 	    = $_POST["devllo_events_bookings_user_first"];
+            $user_first 	= $_POST["devllo_events_bookings_user_first"];
             $user_last	 	= $_POST["devllo_events_bookings_user_last"];
             $user_pass		= $_POST["devllo_events_bookings_user_pass"];
             $pass_confirm 	= $_POST["devllo_events_bookings_user_pass_confirm"];
@@ -152,6 +147,8 @@ class Devllo_Events_Bookings_Form {
                     wp_signon( $creds, true );
                     
                     // send the newly created user to the home page after logging them in
+                    update_option( 'users_can_register', false );
+
                     wp_redirect(home_url('/events')); exit;
                 }
                 
@@ -184,7 +181,3 @@ class Devllo_Events_Bookings_Form {
     }
 
 new Devllo_Events_Bookings_Form();
-
-// devllo_events_errors => devllo_events_bookings_errors
-
-// devllo_events_user => devllo_events_bookings_user

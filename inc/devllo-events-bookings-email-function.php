@@ -16,7 +16,11 @@ class Devllo_Events_Bookings_Email {
 
         $current_user = wp_get_current_user();
 
+        if (isset($_COOKIE['devllo_event_post_id'] )){
+
         $event_id = $_COOKIE['devllo_event_post_id']; 
+
+        }
 
         $event_title = get_the_title( $event_id );
         $event_link = get_permalink( $event_id );
@@ -38,7 +42,11 @@ class Devllo_Events_Bookings_Email {
 
         $current_user = wp_get_current_user();
 
+        if (isset($_COOKIE['devllo_event_post_id'] )){
+
         $event_id = $_COOKIE['devllo_event_post_id']; 
+
+        }
 
         $event_title = get_the_title( $event_id );
         $event_link = get_permalink( $event_id );

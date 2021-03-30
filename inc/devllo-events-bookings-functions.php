@@ -150,7 +150,7 @@ class Devllo_Events_Bookings_Functions {
 
     }
 
-        // Check for event price
+    // Check for event price
     function devllo_events_check_for_price(){
         global $post;
 
@@ -168,7 +168,7 @@ class Devllo_Events_Bookings_Functions {
         }
     }
 
-        // Load Checkout Page function
+    // Load Checkout Page function
     function devllo_events_redirect_to_checkout(){
 
        $payment_gateway = get_option('devllo-events-bookings-payment-radio');
@@ -285,7 +285,10 @@ class Devllo_Events_Bookings_Functions {
 
     // Display Attendees Name and Avatar
     function devllo_events_show_attendees(){ ?>
+        <section class="section">
         <h3><?php _e('Attendees', 'devllo-events-bookings') ?></h3>
+        <div>
+            <ul class="flex gridList">
         <?php
         global $wpdb;
         global $post;
@@ -300,15 +303,19 @@ class Devllo_Events_Bookings_Functions {
             )
             );
         foreach ( $result as $print )   {
-                 echo $print->name;
-                 ?>
+                 ?><li class="gridList-item flex-item">
             <picture>
             <source srcset="<?php print get_avatar_url($print->user_id, ['size' => '51']); ?>" media="(min-width: 992px)"/>
             <img src="<?php print get_avatar_url($print->user_id, ['size' => '40']); ?>"/>
-            </picture>
-            <?php           
-        }
+            </picture><br/>
+            <span class="attendee-name"><?php echo $print->name; ?></class>
+        </li>
 
+        <?php
+        }
+        ?> </ul></div> 
+        </section>
+        <?php
     }   
         
 }

@@ -36,7 +36,7 @@ if ( ! class_exists( 'Devllo_Events_Bookings' ) ) {
 
         include( 'payments/payments.php'); 
 
-        add_action( 'admin_enqueue_scripts', array( $this, 'devllo_events_reg_enqueue_scripts' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'devllo_events_reg_enqueue_scripts' ) );
 
         include( 'admin/devllo-events-bookings-dashboard.php'); 
         include( 'admin/devllo-events-bookings-admin.php'); 
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Devllo_Events_Bookings' ) ) {
         }
 
         function devllo_events_reg_enqueue_scripts() {   
-         //   wp_enqueue_style( 'devllo-events-dashboard', DEVLLO_EVENTS_BOOKINGS_URI. 'inc/css/dashboard.css');	
+            wp_enqueue_style( 'devllo-events-dashboard', DEVLLO_EVENTS_BOOKINGS_URI. 'inc/css/styles.css');	
         }
 
     }
