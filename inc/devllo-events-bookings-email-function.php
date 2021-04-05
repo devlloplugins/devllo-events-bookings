@@ -112,7 +112,7 @@ class Devllo_Events_Bookings_Email {
         $message .= '<br/><br/>Location: ' .$location_name;
         }
 
-        $message .= '<br/><br/>Your details: ';
+     //   $message .= '<br/><br/>Your details: ';
 
         $message .= '<br/><br/>Please submit any questions to ' .$organiser_email;
 

@@ -1,10 +1,10 @@
 <?php
 /*
-    Plugin Name: Bookings for Devllo Events
+    Plugin Name: Devllo Events Bookings
     Plugin URI: https://devlloplugins.com/
     Description: This adds a bookings function to the Devllo Events plugin
     Author: Devllo Plugins
-    Version: 0.0.1
+    Version: 0.1
     Author URI: https://devllo.com/
     Text Domain: devllo-events-bookings
     Domain Path: /languages
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Current plugin version.
  */
-define( 'DEVLLO_EVENTS_BOOKINGS_VERSION', '0.0.1' );
+define( 'DEVLLO_EVENTS_BOOKINGS_VERSION', '0.1' );
 define( 'DEVLLO_EVENTS_BOOKINGS_URI', plugin_dir_url( __FILE__ ) );
 define( 'DEVLLO_EVENTS_BOOKINGS_DIR', dirname(__FILE__) );
 

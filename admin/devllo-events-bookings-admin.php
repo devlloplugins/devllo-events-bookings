@@ -212,7 +212,11 @@ class Devllo_Events_Bookings_Admin_Settings{
 									<br/>
 
 									<input type="radio" id="devllo-events-bookings-payment-radio" name="devllo-events-bookings-payment-radio" value="offsite" <?php checked('offsite', get_option('devllo-events-bookings-payment-radio'), true); ?>>
-									<?php _e('Offsite Payment Gateway', 'devllo-events-bookings'); ?></td>
+									<?php _e('Offsite Payment Gateway', 'devllo-events-bookings'); ?>
+									<br/>
+
+									<?php do_action('devllo_events_payment_type_option'); ?>
+									</td>
 									<td></td>
 									</tr>
 									<?php

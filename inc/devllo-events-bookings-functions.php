@@ -32,7 +32,6 @@ class Devllo_Events_Bookings_Functions {
 
             setcookie("devllo_event_post_id", $value, time()+300, '/');
             }
-            print_r($_COOKIE);
     }
 
     // Create Bookings Button

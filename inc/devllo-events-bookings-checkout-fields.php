@@ -6,9 +6,6 @@ class Devllo_Events_Bookings_Checkout_Fields {
     public function __construct(){
         add_shortcode ('devllo_events_fields', array($this, 'devllo_events_fields'));
         add_action('devllo_events_bookings_before_checkout_form', array($this, 'devllo_events_bookings_fields'));
-
-
-
     }
 
     public function devllo_events_fields( $atts = '', $content = null ) {
