@@ -7,7 +7,7 @@ Requires PHP: 5.5
 Stable tag: 0.1
 License: GPLv2 or later
 
-Add Booking capabilities to Single Events
+Add Booking capabilities to Events
 
 == Description ==
 Allow attendees to register to events. Sell tickets with integrated payment gateway or redirect to an offsite ticket pahe.
@@ -17,7 +17,7 @@ Allow attendees to register to events. Sell tickets with integrated payment gate
 You can install directly from the Plugin Repository using the Plugins system in WordPress.
 
 = MANUAL INSTALLATION =
-Upload devllo-events.php to the /wp-content/plugins/ directory
+Upload devllo-events-bookings.zip to the /wp-content/plugins/ directory
 Activate the plugin through the ‘Plugins’ menu in WordPress
 
 = AFTER INSTALLATION =

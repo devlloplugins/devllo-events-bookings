@@ -75,12 +75,27 @@ class Devllo_Events_Bookings_Form {
         // Register a new user
         function devllo_events_add_new_user() {
             if (isset( $_POST["devllo_events_bookings_user_login"] ) && wp_verify_nonce($_POST['devllo_events_csrf'], 'devllo-eb-csrf')) {
-            $user_login		= $_POST["devllo_events_bookings_user_login"];	
+            $user_login		= $_POST["devllo_events_bookings_user_login"];
+
+            if (isset( $_POST["devllo_events_bookings_user_email"] )){
             $user_email		= $_POST["devllo_events_bookings_user_email"];
+            }
+
+            if (isset( $_POST["devllo_events_bookings_user_first"] )){
             $user_first 	= $_POST["devllo_events_bookings_user_first"];
+            }
+
+            if (isset( $_POST["devllo_events_bookings_user_last"] )){
             $user_last	 	= $_POST["devllo_events_bookings_user_last"];
+            }
+
+            if (isset( $_POST["devllo_events_bookings_user_pass"] )){
             $user_pass		= $_POST["devllo_events_bookings_user_pass"];
+            }
+
+            if (isset( $_POST["devllo_events_bookings_user_pass_confirm"] )){
             $pass_confirm 	= $_POST["devllo_events_bookings_user_pass_confirm"];
+            }
             
             // this is required for username checks
           //  require_once(ABSPATH . WPINC . '/bookings.php');

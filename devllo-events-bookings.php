@@ -42,7 +42,6 @@ if ( ! class_exists( 'Devllo_Events_Bookings' ) ) {
         include( 'admin/devllo-events-bookings-admin.php'); 
 
         register_activation_hook( __FILE__, array( 'Devllo_Events_Bookings_Activator', 'devllo_events_bookings_database' ));
-//      register_activation_hook( __FILE__, array( 'Devllo_Events_Bookings_Activator', 'jal_install_data' ));
         register_activation_hook( __FILE__, array( 'Devllo_Events_Bookings_Activator', 'devllo_events_bookings_activate' ));
         }
 
