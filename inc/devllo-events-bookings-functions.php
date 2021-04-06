@@ -241,10 +241,8 @@ class Devllo_Events_Bookings_Functions {
         global $post;
 
     if (isset($_COOKIE['devllo_event_post_id'] )){
-       $postID = $_COOKIE['devllo_event_post_id'];
+       $postID = intval($_COOKIE['devllo_event_post_id']);
     }
-
-      // $postID = $post->ID;
 
         global $wpdb;
 
