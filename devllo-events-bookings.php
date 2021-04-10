@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 
+if ( (in_array( 'devllo-events/devllo-events.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )) ) {
 /**
  * Current plugin version.
  */
@@ -42,7 +43,6 @@ if ( ! class_exists( 'Devllo_Events_Bookings' ) ) {
         include( 'admin/devllo-events-bookings-admin.php'); 
 
         register_activation_hook( __FILE__, array( 'Devllo_Events_Bookings_Activator', 'devllo_events_bookings_database' ));
-//      register_activation_hook( __FILE__, array( 'Devllo_Events_Bookings_Activator', 'jal_install_data' ));
         register_activation_hook( __FILE__, array( 'Devllo_Events_Bookings_Activator', 'devllo_events_bookings_activate' ));
         }
 
@@ -55,3 +55,10 @@ if ( ! class_exists( 'Devllo_Events_Bookings' ) ) {
     
 }
 new Devllo_Events_Bookings();
+}else
+{
+    function devllo_events_bookings_pmpro_admin_notice(){
+    echo '<div class="notice notice-error is-dismissible"><p>The Devllo Events plugin is not installed.</p></div>';
+    }
+    add_action('admin_notices', 'devllo_events_bookings_pmpro_admin_notice');
+}

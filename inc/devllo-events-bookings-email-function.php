@@ -18,7 +18,7 @@ class Devllo_Events_Bookings_Email {
 
         if (isset($_COOKIE['devllo_event_post_id'] )){
 
-        $event_id = $_COOKIE['devllo_event_post_id']; 
+        $event_id = intval($_COOKIE['devllo_event_post_id']);
 
         }
 
@@ -44,7 +44,7 @@ class Devllo_Events_Bookings_Email {
 
         if (isset($_COOKIE['devllo_event_post_id'] )){
 
-        $event_id = $_COOKIE['devllo_event_post_id']; 
+            $event_id = intval($_COOKIE['devllo_event_post_id']);
 
         }
 

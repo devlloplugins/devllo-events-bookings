@@ -14,17 +14,17 @@ function devllo_events_stripe_payment_form() {
         $pbc_instructions = get_option('devllo-events-bookings-pbc-instruction');
 
 
-if ($payment_gateway == "pbc"){
+        if ($payment_gateway == "pbc"){
 
             echo "<form action='' method='POST' id='payment-form'><h3>Pay By Check </h3><div>";
             if (isset($pbc_instructions)) {
                  echo esc_attr($pbc_instructions); 
                 }   
-                
-    ?></div><br/><button class="btn btn-primary" type="submit" id="submit"><?php  _e('Accept', 'devllo-events-registration'); ?></button>
-    </form>
-    <?php
-    if($_SERVER['REQUEST_METHOD']=='POST'){ 
+                    
+            ?></div><br/><button class="btn btn-primary" type="submit" id="submit"><?php  _e('Accept', 'devllo-events-registration'); ?></button>
+            </form>
+            <?php
+            if($_SERVER['REQUEST_METHOD']=='POST'){ 
 
         echo "You will be redirected to the event page.<br/>";
     
