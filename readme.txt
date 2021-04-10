@@ -1,4 +1,4 @@
-=== Devllo Events Bookings ===
+=== Bookings for Devllo Events ===
 Contributors: devlloplugins
 Tags: calendar, events, event, event manager, event management, fullcalendar, booking
 Requires at least: 4.4
@@ -25,7 +25,7 @@ The plugin will automatically create the pages Registration and Booking, if thos
 You can manually edit the pages to add these shortcodes.
 
 == Screenshots ==
-1. 
+1. Attendees section on Events Page.
 
 == Frequently Asked Questions ==
 

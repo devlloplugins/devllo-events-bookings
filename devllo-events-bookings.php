@@ -1,8 +1,8 @@
 <?php
 /*
-    Plugin Name: Devllo Events Bookings
+    Plugin Name: Bookings for Devllo Events
     Plugin URI: https://devlloplugins.com/
-    Description: This adds a bookings function to the Devllo Events plugin
+    Description: This plugin adds a ticketing function to the Devllo Events plugin
     Author: Devllo Plugins
     Version: 0.1
     Author URI: https://devllo.com/

@@ -300,7 +300,7 @@ class Devllo_Events_Bookings_Functions {
             )
             );
         foreach ( $result as $print )   {
-                 ?><li class="gridList-item flex-item">
+                 ?><li class="gridList-item flex-item" style="list-style: none;">
             <picture>
             <source srcset="<?php print get_avatar_url($print->user_id, ['size' => '51']); ?>" media="(min-width: 992px)"/>
             <img src="<?php print get_avatar_url($print->user_id, ['size' => '40']); ?>"/>

@@ -56,4 +56,4 @@ function devllo_events_stripe_payment_form() {
     return ob_get_clean();
 
 }
-add_shortcode('devllo_checkout', 'devllo_events_stripe_payment_form');
+add_shortcode('devllo-checkout', 'devllo_events_stripe_payment_form');
