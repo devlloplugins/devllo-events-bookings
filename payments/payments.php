@@ -1,5 +1,5 @@
 <?php
-function devllo_events_stripe_payment_form() {
+function devllo_events_payment_form() {
 
     ob_start();
 
@@ -21,39 +21,42 @@ function devllo_events_stripe_payment_form() {
                  echo esc_attr($pbc_instructions); 
                 }   
                     
-            ?></div><br/><button class="btn btn-primary" type="submit" id="submit"><?php  _e('Accept', 'devllo-events-registration'); ?></button>
+            ?></div>
+            <br/>
+            <button class="btn btn-primary" type="submit" id="submit"><?php  _e('Accept', 'devllo-events-registration'); ?></button>
             </form>
             <?php
             if($_SERVER['REQUEST_METHOD']=='POST'){ 
 
-        echo "You will be redirected to the event page.<br/>";
-    
-        $Devllo_Events_Bookings_Functions = new Devllo_Events_Bookings_Functions;
-    
-        $Devllo_Events_Bookings_Functions->devllo_events_add_attendee();
+                _e('You will be redirected to the event page.', 'devllo-events-bookings'); ?>
+                <br/>
+                <?php
+            
+                $Devllo_Events_Bookings_Functions = new Devllo_Events_Bookings_Functions;
+            
+                $Devllo_Events_Bookings_Functions->devllo_events_add_attendee();
+   
+                echo '<script type="text/javascript">
+                        setTimeout(function(){
+                            window.location.href = "'. get_permalink( $value ) .'"
+                        }, 5000);
+                        console.log('.$value.')
+                    </script>';
+            }
 
-        ?>
-			<script>
-				setTimeout(function(){
-					window.location.href = '<?php get_permalink( $value ); ?>';
-				}, 5000);
-			</script>
-        <?php
-    }
-
-}else{
-    do_action('devllo_events_bookings_payment_checkout');
-}
-
+        }
+        else{
+            do_action('devllo_events_bookings_payment_checkout');
+        }
 
 	}
 	
 	else
 	
 	{
-		echo 'Please select an event to check out';
+		 _e('Please select an event to check out', 'devllo-events-bookings');
 	}
     return ob_get_clean();
 
 }
-add_shortcode('devllo-checkout', 'devllo_events_stripe_payment_form');
+add_shortcode('devllo-checkout', 'devllo_events_payment_form');

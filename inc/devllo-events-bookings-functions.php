@@ -12,7 +12,7 @@ class Devllo_Events_Bookings_Functions {
       add_action ('devllo_events_after_side_single_event', array($this, 'devllo_events_reg_user'));
       add_action ('devllo_events_after_side_single_event', array($this, 'devllo_events_reg_login_func'));
 
-      add_action ('wp_head', array($this, 'checkoutstartSession'), 1);
+      add_action ('wp_head', array($this, 'devllo_events_reg_checkoutstartSession'), 1);
     
      // add_action ('devllo_events_after_side_single_event', array($this, 'devllo_events_reg_login_button'));
 
@@ -23,7 +23,7 @@ class Devllo_Events_Bookings_Functions {
     }
 
     // Start Checkout Session
-    function checkoutstartSession() {
+    function devllo_events_reg_checkoutstartSession() {
 
             global $post;
             if ( 'devllo_event' === $post->post_type ) {
@@ -96,7 +96,7 @@ class Devllo_Events_Bookings_Functions {
         }
     }
 
-    // Check if USer is Registered, if not let them Register
+    // Check if User is Registered, if not let them Register
     function devllo_events_reg_user(){
         global $post;
         $postID = $post->ID;
@@ -104,7 +104,7 @@ class Devllo_Events_Bookings_Functions {
             if ( !is_user_logged_in() ) {
         
             echo do_shortcode( '[reg_login]' );
-            _e('You need to Log in/Register as an attendee to attend this event', '');
+            _e('You need to Log in/Register as an attendee to attend this event', 'devllo-events-bookings');
             
             }
             else
@@ -174,8 +174,6 @@ class Devllo_Events_Bookings_Functions {
 
        if ($payment_gateway == "pbc"){ 
            $url = get_permalink(get_option('devllo-event-checkout-page'));   
-        //   $url = get_site_url() . "/1526-2/";
-
            wp_redirect( $url );
         }
         elseif ($payment_gateway == "offsite"){
@@ -215,23 +213,30 @@ class Devllo_Events_Bookings_Functions {
         )
         );
 
-        $table_name = $wpdb->prefix . 'devllo_events_participants';
-    
-        $wpdb->insert( 
-        $table_name, 
-        array( 
-            'time' => current_time( 'mysql' ), 
-            'name' => $user->user_login,
-            'user_email' => $user->user_email,
-            'user_id' => $user->ID,
-            'event_id' => $postID, 
-                //'text' => $welcome_text, 
-            ) 
-        );
+        // Check if user is already registered
+        if ( $id > 0 )
+        {
+            echo 'You are already registered for this event';
+        }   else
+        {
+            $table_name = $wpdb->prefix . 'devllo_events_participants';
+        
+            $wpdb->insert( 
+            $table_name, 
+            array( 
+                'time' => current_time( 'mysql' ), 
+                'name' => $user->user_login,
+                'user_email' => $user->user_email,
+                'user_id' => $user->ID,
+                'event_id' => $postID, 
+                    //'text' => $welcome_text, 
+                ) 
+            );
         
         echo '<br/>You are Registered, you will be attending this event';
 
         do_action('devllo_events_bookings_after_add_attendee');
+        }
     
     }
 
@@ -260,24 +265,31 @@ class Devllo_Events_Bookings_Functions {
         )
         );
 
-        $table_name = $wpdb->prefix . 'devllo_events_participants';
-    
-        $wpdb->insert( 
-        $table_name, 
-        array( 
-            'time' => current_time( 'mysql' ), 
-            'name' => $user->user_login,
-            'user_email' => $user->user_email,
-            'user_id' => $user->ID,
-            'event_id' => $postID, 
-                //'text' => $welcome_text, 
-            ) 
-        );
-        
-        echo '<br/>You are Registered, you will be attending this event';
+        // Check if user is already registered
+        if ( $id > 0 )
+        {
+            echo 'You are already registered for this event';
+        }   else
+        {
 
-        do_action('devllo_events_bookings_after_add_attendee');
-    
+            $table_name = $wpdb->prefix . 'devllo_events_participants';
+        
+            $wpdb->insert( 
+            $table_name, 
+            array( 
+                'time' => current_time( 'mysql' ), 
+                'name' => $user->user_login,
+                'user_email' => $user->user_email,
+                'user_id' => $user->ID,
+                'event_id' => $postID, 
+                    //'text' => $welcome_text, 
+                ) 
+            );
+        
+            echo '<br/>You are Registered, you will be attending this event';
+
+            do_action('devllo_events_bookings_after_add_attendee');
+        }
     }
 
     // Display Attendees Name and Avatar

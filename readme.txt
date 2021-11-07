@@ -36,3 +36,9 @@ Please post it in the [WordPress support forum](https://wordpress.org/support/pl
 == Changelog ==
 = 0.1 =
 Initial release.
+
+= 0.2 =
+Fixed Redirect after checkout.
+Fixed HTML tags in emails
+Fixed duplicate event bookings
+Fixed bug on register page
