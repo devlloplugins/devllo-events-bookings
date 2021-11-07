@@ -26,6 +26,8 @@ class Devllo_Events_Bookings_Functions {
     function devllo_events_reg_checkoutstartSession() {
 
             global $post;
+            if( !is_object($post) ) 
+            return;
             if ( 'devllo_event' === $post->post_type ) {
 
             $value = $post->ID;

@@ -4,7 +4,7 @@
     Plugin URI: https://devlloplugins.com/
     Description: This plugin adds a ticketing function to the Devllo Events plugin
     Author: Devllo Plugins
-    Version: 0.1
+    Version: 0.2
     Author URI: https://devllo.com/
     Text Domain: devllo-events-bookings
     Domain Path: /languages
@@ -20,7 +20,7 @@ if ( (in_array( 'devllo-events/devllo-events.php', apply_filters( 'active_plugin
 /**
  * Current plugin version.
  */
-define( 'DEVLLO_EVENTS_BOOKINGS_VERSION', '0.1' );
+define( 'DEVLLO_EVENTS_BOOKINGS_VERSION', '0.2' );
 define( 'DEVLLO_EVENTS_BOOKINGS_URI', plugin_dir_url( __FILE__ ) );
 define( 'DEVLLO_EVENTS_BOOKINGS_DIR', dirname(__FILE__) );
 

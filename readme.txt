@@ -42,3 +42,4 @@ Fixed Redirect after checkout.
 Fixed HTML tags in emails
 Fixed duplicate event bookings
 Fixed bug on register page
+Fixed devllo-register shortcode error

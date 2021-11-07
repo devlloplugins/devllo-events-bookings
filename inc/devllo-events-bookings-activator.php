@@ -13,7 +13,7 @@ class Devllo_Events_Bookings_Activator {
     public static function devllo_events_bookings_activate() { 
         add_option( 'Activated_Plugin', 'devllo-event-bookings' );
 
-		$devllo_events_bookings_current_version = 0.1;
+		$devllo_events_bookings_current_version = 0.2;
 
     }
 

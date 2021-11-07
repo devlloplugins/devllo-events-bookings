@@ -3,7 +3,7 @@
 class Devllo_Events_Bookings_Form {
 
         public function __construct(){
-            add_shortcode( 'devllo_register', array($this, 'devllo_events_bookings_form'));
+            add_shortcode( 'devllo-register', array($this, 'devllo_events_bookings_form'));
             add_action( 'init', array( $this, 'devllo_events_add_new_user' ) );
         }
 
