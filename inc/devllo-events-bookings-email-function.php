@@ -8,6 +8,7 @@ class Devllo_Events_Bookings_Email {
     public function __construct(){
         add_action('devllo_events_bookings_after_add_attendee', array($this, 'devllo_send_organiser_email_after_checkout'));
         add_action('devllo_events_bookings_after_add_attendee', array($this, 'devllo_send_email_after_checkout'));
+        add_filter('wp_mail_content_type', array($this, 'devllo_events_format_email'));        
     }
 
 
@@ -33,7 +34,7 @@ class Devllo_Events_Bookings_Email {
         $message = 'A user has registered to attend <a href="' . $event_link . ' ">' . $event_title . '</a>.';
 
         wp_mail( $to, $subject, $message );
-
+        
     }
 
 
@@ -112,12 +113,15 @@ class Devllo_Events_Bookings_Email {
         $message .= '<br/><br/>Location: ' .$location_name;
         }
 
-     //   $message .= '<br/><br/>Your details: ';
-
         $message .= '<br/><br/>Please submit any questions to ' .$organiser_email;
 
         wp_mail( $to, $subject, $message );
 
+    }
+
+    // Format Emails
+    function devllo_events_format_email(){
+        return 'text/html';
     }
 }
 

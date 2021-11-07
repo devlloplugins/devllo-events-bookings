@@ -3,7 +3,7 @@
 class Devllo_Events_Bookings_Form {
 
         public function __construct(){
-            add_shortcode( 'devllo_register', array($this, 'devllo_events_bookings_form'));
+            add_shortcode( 'devllo-register', array($this, 'devllo_events_bookings_form'));
             add_action( 'init', array( $this, 'devllo_events_add_new_user' ) );
         }
 
@@ -16,11 +16,8 @@ class Devllo_Events_Bookings_Form {
             // check if bookings is enabled
            // $bookings_enabled = get_option('users_can_register');
 
-            if ( ! get_option( 'users_can_register' ) ) { 
-            update_option( 'users_can_register', true ); 
-            }
 
-                $output = $this->devllo_events_bookings_fields();
+            $output = $this->devllo_events_bookings_fields();
    
             return $output;
         }
@@ -151,8 +148,7 @@ class Devllo_Events_Bookings_Form {
                     // log the new user in
                     wp_set_auth_cookie($user_login, $user_pass, true);
                     wp_set_current_user($new_user_id, $user_login);	
-                    do_action('wp_login', $user_login);
-
+                   // do_action('wp_login', $user_login);
 
                     $creds = array();
                     $creds['user_login'] = $user_login;
@@ -162,7 +158,6 @@ class Devllo_Events_Bookings_Form {
                     wp_signon( $creds, true );
                     
                     // send the newly created user to the home page after logging them in
-                    update_option( 'users_can_register', false );
 
                     wp_redirect(home_url('/events')); exit;
                 }

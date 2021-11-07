@@ -4,7 +4,7 @@ Tags: calendar, events, event, event manager, event management, fullcalendar, bo
 Requires at least: 4.4
 Tested up to: 5.7
 Requires PHP: 5.5
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 
 Add Booking capabilities to Events
@@ -36,3 +36,10 @@ Please post it in the [WordPress support forum](https://wordpress.org/support/pl
 == Changelog ==
 = 0.1 =
 Initial release.
+
+= 0.2 =
+Fixed Redirect after checkout.
+Fixed HTML tags in emails
+Fixed duplicate event bookings
+Fixed bug on register page
+Fixed devllo-register shortcode error
